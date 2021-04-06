@@ -2,13 +2,26 @@ class Negociacao {
     // atributos da classe
     constructor(data, quantidade, valor) {
         // declarando parâmetros no constructor
-        this.data = data
-        this.quantidade = quantidade
-        this.valor = valor
+        this._data = data
+        this._quantidade = quantidade
+        this._valor = valor
     }
 
     // métodos da classe
     obtemVolume() {
-        return this.quantidade * this.valor
+        return this._quantidade * this._valor
+    }
+
+    // métodos acessadores: GET. Acessam os atributos privados da classe
+    getData() {
+        return this._data
+    }
+
+    getQuantidade() {
+        return this._quantidade
+    }
+    
+    getValor() {
+        return this._valor
     }
 }
