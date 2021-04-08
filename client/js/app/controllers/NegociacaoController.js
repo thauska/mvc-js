@@ -15,7 +15,13 @@ class NegociacaoController {
         // console.log(typeof(this._inputData.value)) -> é string e precisa ser objeto tipo date
 
         // '2016-11-12' sem split
-        let data = new Date(this._inputData.value.replace(/-/g, ','))
+        let data = new Date(...
+            this._inputData.value
+                .split('-')
+                .map(function (item, indice) {
+                    return item - indice % 2
+                })
+        )
 
         console.log(data)
     }
