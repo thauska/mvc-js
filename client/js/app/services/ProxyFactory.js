@@ -9,9 +9,11 @@ class ProxyFactory {
       
                     console.log(`método '${prop}' interceptado`)
                     
-                    Reflect.apply(target[prop], target, arguments)
+                    let retorno = Reflect.apply(target[prop], target, arguments)
       
-                    return acao(target)
+                    acao(target)
+
+                    return retorno
       
                   }
                 }
@@ -21,11 +23,11 @@ class ProxyFactory {
 
             set(target, prop, value,receiver) {
 
-              if(props.includes(prop)) {
-                target[prop] = value
-                acao(target)
-              }
-              return Reflect.set(target, prop, value,receiver)
+              let retorno = Reflect.set(target, prop, value,receiver)
+
+              if(props.includes(prop)) acao(target)
+              
+              return retorno
             }
         })
     }
