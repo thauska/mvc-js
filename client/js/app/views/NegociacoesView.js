@@ -18,7 +18,7 @@ class NegociacoesView extends View {
                 <tbody>
                     ${model.negociacoes.map(n => `
                         <tr>
-                            <td>${DateHelper.dateToText(n.data)}</td>
+                            <td>${DateConverter.dateToText(n.data)}</td>
                             <td>${n.quantidade}</td>
                             <td>${n.valor}</td>
                             <td>${n.volume}</td>

@@ -31,7 +31,7 @@ class NegociacaoController {
 
   _criaNegociacao() {
     return new Negociacao(
-      DateHelper.textToDate(this._inputData.value),
+      DateConverter.textToDate(this._inputData.value),
       this._inputQntd.value,
       this._inputValor.value
     )
