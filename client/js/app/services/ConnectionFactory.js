@@ -1,5 +1,5 @@
 var ConnectionFactory = (function () {
-    // função autoinvocada
+    // função autoinvocada - IIFE (Immediately Invoked Function Expression): https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 
   const stores = ['negociacoes']
   const version = 4
