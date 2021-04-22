@@ -1,8 +1,7 @@
 class NegociacaoController {
   constructor() {
-    this._ordemAtual = ''
     let $ = document.querySelector.bind(document)
-
+    
     this._inputData = $('#data')
     this._inputQntd = $('#quantidade')
     this._inputValor = $('#valor')
@@ -12,13 +11,21 @@ class NegociacaoController {
       new NegociacoesView($('#negociacoesView')),
       'adiciona', 'esvazia', 'ordena', 'inverteOrdem'
     )
-
+    
     this._mensagem = new Bind(
       new Mensagem(),
       new MensagemView($('#mensagemView')),
       'texto'
     )
 
+    this._ordemAtual = ''
+
+    this._init()
+        
+  }
+  
+  _init() {
+    
     ConnectionFactory
       .getConnection()
       .then(connection => new NegociacaoDao(connection))
@@ -28,6 +35,10 @@ class NegociacaoController {
         console.log(error)
         this._mensagem.texto = error
       })
+  
+    setInterval(() => {
+      this.importaNegociacoes()
+    }, 3000)
     
   }
 
