@@ -1,6 +1,7 @@
 import { View } from './View'
+import { DateConverter } from '../helpers/DateConverter'
 
-class NegociacoesView extends View {
+export class NegociacoesView extends View {
     
     constructor(elemento) {
         super(elemento)
