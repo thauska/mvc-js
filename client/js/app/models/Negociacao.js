@@ -26,7 +26,11 @@ class Negociacao {
         return this._valor
     }
 
-    isEquals(outraNegociacao) {        
-        return JSON.stringify(this) == JSON.stringify(outraNegociacao)
+    isEquals(outraNegociacao) {
+        //JSON.stringify se baseia em todos os atributos
+        //return JSON.stringify(this) == JSON.stringify(outraNegociacao)
+
+        //negociação deve ser igual a outra quando apenas a data e o valor são iguais
+        return this._data.getTime() == outraNegociacao.data.getTime() && this._valor == outraNegociacao.valor;
     }
 }
