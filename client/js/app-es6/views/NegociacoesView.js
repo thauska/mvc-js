@@ -1,10 +1,18 @@
 import { View } from './View'
 import { DateConverter } from '../helpers/DateConverter'
+import { currentInstance } from '../controllers/NegociacaoController'
 
 export class NegociacoesView extends View {
     
     constructor(elemento) {
         super(elemento)
+        // delegação de eventos
+        elemento.addEventListener('click', event => {
+
+            if(event.target.nodeName == 'TH')
+                currentInstance().ordena(event.target.textContent.toLowerCase())
+
+        })
     }
 
     template(model) {
@@ -12,10 +20,10 @@ export class NegociacoesView extends View {
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th onclick="negociacaoController.ordena('data')">DATA</th>
-                        <th onclick="negociacaoController.ordena('quantidade')">QUANTIDADE</th>
-                        <th onclick="negociacaoController.ordena('valor')">VALOR</th>
-                        <th onclick="negociacaoController.ordena('volume')">VOLUME</th>
+                        <th>DATA</th>
+                        <th>QUANTIDADE</th>
+                        <th>VALOR</th>
+                        <th>VOLUME</th>
                     </tr>
                 </thead>
                 <tbody>

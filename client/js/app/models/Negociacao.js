@@ -51,10 +51,10 @@ System.register([], function (_export, _context) {
                     key: "isEquals",
                     value: function isEquals(outraNegociacao) {
                         //JSON.stringify se baseia em todos os atributos
-                        //return JSON.stringify(this) == JSON.stringify(outraNegociacao)
+                        return JSON.stringify(this) == JSON.stringify(outraNegociacao);
 
                         //negociação deve ser igual a outra quando apenas a data e o valor são iguais
-                        return this._data.getTime() == outraNegociacao.data.getTime() && this._valor == outraNegociacao.valor;
+                        //return this._data.getTime() == outraNegociacao.data.getTime() && this._valor == outraNegociacao.valor;
                     }
                 }, {
                     key: "volume",

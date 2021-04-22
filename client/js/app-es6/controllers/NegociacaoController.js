@@ -7,7 +7,7 @@ import { NegociacaoServices } from '../services/NegociacaoServices'
 import { DateConverter } from '../helpers/DateConverter'
 import { Bind } from '../helpers/Bind'
 
-export class NegociacaoController {
+class NegociacaoController {
   constructor() {
     let $ = document.querySelector.bind(document)
     
@@ -114,4 +114,12 @@ export class NegociacaoController {
     this._ordemAtual = coluna
   }
 
+}
+
+let negociacaoController = new NegociacaoController()
+
+export function currentInstance() {
+
+  return negociacaoController
+  
 }
