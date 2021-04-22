@@ -1,5 +1,6 @@
 class HttpService {
     get(url) {
+
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest()
             xhr.open('GET', url)
@@ -40,8 +41,8 @@ class HttpService {
                         reject(xhr.responseText)
                     }
                 }
-                xhr.send(JSON.stringify(dado))
             }
+            xhr.send(JSON.stringify(dado))
 
         });
 
