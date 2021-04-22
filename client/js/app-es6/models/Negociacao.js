@@ -1,4 +1,4 @@
-class Negociacao {
+export class Negociacao {
     // atributos da classe
     constructor(data, quantidade, valor) {
         // declarando parâmetros no constructor
